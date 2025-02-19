@@ -3,13 +3,21 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    margin: 0 auto;
+    margin: 2rem auto;
     padding: 2rem;
   }
+
+  h1{
+      text-align: center !important;
+      color: darkblue;
+      
+  }
+ 
   
   .form-group {
     margin-bottom: 1.5rem;
     text-align: left;
+    
   }
   
   .form-group label {
@@ -22,7 +30,7 @@
   .form-group input,
   .form-group textarea {
     width: 100%;
-    padding: 0.8rem;
+    padding: 0.6rem;
     border: 1px solid var(--light-green);
     border-radius: 5px;
     font-size: 1rem;
