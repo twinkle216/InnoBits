@@ -17,6 +17,12 @@ const medicineSchema = new mongoose.Schema({
   time1: {
     type: String,
     required: true,
+  },
+  time2: {
+    type: String,
+  },
+  time3: {
+    type: String,
     unique: true,
   },
   password: {
