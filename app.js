@@ -1,10 +1,19 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const PORT = 8000;
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoute");
+const cookieParser = require("cookie-parser");
 const app = express();
 
+app.use(cookieParser());
+
+//middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+//to show frontend
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 

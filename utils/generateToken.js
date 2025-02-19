@@ -1,7 +1,4 @@
 const jwt = require("jsonwebtoken");
-
-const secretKey = "@#JP";
-
 //Generate tokens
 exports.generateToken = (user) => {
   return jwt.sign(
@@ -9,14 +6,9 @@ exports.generateToken = (user) => {
       id: user._id,
       email: user.email,
     },
-    secretKey,
+    process.env.JWT_SECRET,
     {
       expiresIn: "1d",
     }
   );
-};
-
-//verify token
-exports.verifyToken = (token) => {
-  return jwt.verify(token, secretKey);
 };

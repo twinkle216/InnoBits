@@ -1,104 +1,104 @@
 body {
-    background: #023912;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
+  background: #023912;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.main-container {
+  display: flex;
+  width: 80%;
+  max-width: 1200px;
+  box-shadow: 0 4px 8px rgba(0, 128, 0, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.left-section {
+  flex: 1;
+  background: #daffe5;
+  padding: 2rem;
+  text-align: center;
+}
+.logo {
+  max-width: 30rem;
+  margin-bottom: 1rem;
+}
+.ecocy-title {
+  font-size: 4em;
+  color: #064e3b;
+  margin: 0;
+}
+.tagline {
+  color: #0a231c;
+  font-size: 1.2em;
+  margin-top: 0.5rem;
+}
+.right-section {
+  flex: 1;
+  background: white;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  width: 100%;
+  max-width: 350px;
+}
+.title {
+  color: #064e3b;
+  font-size: 2em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+.input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.button {
+  width: 100%;
+  padding: 10px;
+  background-color: #059669;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.button:hover {
+  background-color: #04513b;
+}
+
+@media (max-width: 768px) {
   .main-container {
-    display: flex;
-    width: 80%;
-    max-width: 1200px;
-    box-shadow: 0 4px 8px rgba(0, 128, 0, 0.2);
-    border-radius: 16px;
-    overflow: hidden;
+    flex-direction: column;
+    width: 90%;
   }
-  .left-section {
-    flex: 1;
-    background: #daffe5;
-    padding: 2rem;
-    text-align: center;
-  }
-  .logo {
-    max-width: 30rem;
-    margin-bottom: 1rem;
+  .left-section,
+  .right-section {
+    width: 100%;
+    padding: 1.5rem;
   }
   .ecocy-title {
-    font-size: 4em;
-    color: #064e3b;
-    margin: 0;
+    font-size: 3em;
   }
-  .tagline {
-    color: #0a231c;
-    font-size: 1.2em;
-    margin-top: 0.5rem;
-  }
-  .right-section {
-    flex: 1;
-    background: white;
-    padding: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .card {
-    width: 100%;
-    max-width: 350px;
+}
+
+@media (max-width: 480px) {
+  .ecocy-title {
+    font-size: 2.5em;
   }
   .title {
-    color: #064e3b;
-    font-size: 2em;
-    margin-bottom: 1em;
-    text-align: center;
+    font-size: 1.8em;
   }
-  .input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    box-sizing: border-box;
+  .card {
+    padding: 1rem;
   }
-  .button {
-    width: 100%;
-    padding: 10px;
-    background-color: #059669;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  .button:hover {
-    background-color: #04513b;
-  }
-  
-  @media (max-width: 768px) {
-    .main-container {
-      flex-direction: column;
-      width: 90%;
-    }
-    .left-section, .right-section {
-      width: 100%;
-      padding: 1.5rem;
-    }
-    .ecocy-title {
-      font-size: 3em;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .ecocy-title {
-      font-size: 2.5em;
-    }
-    .title {
-      font-size: 1.8em;
-    }
-    .card {
-      padding: 1rem;
-    }
-  }
-  
+}

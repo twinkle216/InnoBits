@@ -1,7 +1,6 @@
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
-const path = require("path");
-const { generateToken } = require("../utils/jwt");
+const { generateToken } = require("../utils/generateToken");
 
 //Handle user signUp
 exports.signUp = async (req, res) => {
@@ -15,18 +14,23 @@ exports.signUp = async (req, res) => {
       return res.status(400).send("User already exists!");
     }
 
-    const user = new User({ username, email, country, state, city, password });
+    const user = new User({ username, age, gender, email, password });
     await user.save();
 
     //create token
     const token = generateToken(user);
 
-    //send token to frontend
-    res.status(200).json({token});
+    //storing token in cookies
+    res.cookie("token", token, {
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000,
+      secure: true,
+      sameSite: "None", //for cross-site cookies
+    });
 
-    res.sendFile(path.join(__dirname, "..", "views", "html", "index.html"));
+    res.redirect("/home");
   } catch (error) {
-    res.status(500).send("Error" + error.message);
+    res.send("Error" + error.message);
   }
 };
 
@@ -41,7 +45,7 @@ exports.login = async (req, res) => {
       return res.status(400).send("User not found!");
     }
 
-    //compare password
+    //comparing password
 
     const isMatch = await bcrypt.compare(password, user.password);
 
@@ -49,11 +53,22 @@ exports.login = async (req, res) => {
       return res.status(400).send("invalid password!");
     }
 
+    //creating and storing token
     const token = generateToken(user);
-
-    //successful login
-    res.sendFile(path.join(__dirname, "..", "views", "html", "index.html"));
+    res.cookie("token", token, {
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000,
+      secure: true, // 🔴 Important for HTTPS (Use false for localhost)
+      sameSite: "None", // 🔴 Required for cross-site cookies
+    });
+    res.redirect("/home");
   } catch (error) {
-    res.status(500).send("Error: " + error.message);
+    res.send("Error: " + error.message);
   }
+};
+
+//logout handling
+exports.logout = (req, res) => {
+  res.clearCookie("token");
+  res.redirect("/");
 };

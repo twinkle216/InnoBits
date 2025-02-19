@@ -1,192 +1,201 @@
 /* Reset default styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
- 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7fc;
-    color: #333;
-    line-height: 1.6;
+  background-color: #ecf0f1;
+  color: #03013f;
+  line-height: 1.6;
 }
 
-h1, h2, h3 {
-    color: #2c3e50;
-    font-weight: 600;
-    margin-bottom: 10px;
+h1,
+h2,
+h3 {
+  color: #00063e;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-
-nav{
-     padding: 0.5rem !important;
+nav {
+  padding: 0.5rem !important;
 }
-
 
 .dashboard {
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .inventory-summary {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
 }
 
 .inventory-summary table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.inventory-summary th, .inventory-summary td {
-    padding: 12px;
-    text-align: left;
+.inventory-summary th,
+.inventory-summary td {
+  padding: 12px;
+  text-align: left;
 }
 
 .inventory-summary th {
-    background-color: #ecf0f1;
-    font-weight: 600;
+  background-color: #ecf0f1;
+  font-weight: 600;
 }
 
 .inventory-summary tr {
-    border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .inventory-summary tr:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
-.inventory-summary .low-stock td, .inventory-summary .expiring-soon td {
-    color: #e74c3c;
+.inventory-summary .low-stock td,
+.inventory-summary .expiring-soon td {
+  color: #e74c3c;
 }
-.inventory-summary button{
-    background-color: #3c9ae7;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.inventory-summary .low-stock button, .inventory-summary .expiring-soon button {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.inventory-summary button {
+  background-color: #3c9ae7;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.inventory-summary .low-stock button:hover, .inventory-summary .expiring-soon button:hover {
-    background-color: #c0392b;
+.inventory-summary .low-stock button,
+.inventory-summary .expiring-soon button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  height: 2rem;
+  width: 5rem;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.inventory-summary .low-stock button:hover,
+.inventory-summary .expiring-soon button:hover {
+  background-color: #c0392b;
 }
 
 /* Alerts Section */
 .alerts {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
 }
 
 .alerts .alert {
-    background-color: #f9ebec;
-    border-left: 5px solid #e74c3c;
-    padding: 12px 20px;
-    margin-bottom: 15px;
-    font-size: 16px;
+  background-color: #f9ebec;
+  border-left: 5px solid #e74c3c;
+  padding: 12px 20px;
+  margin-bottom: 15px;
+  font-size: 16px;
 }
 
- 
-
 .alerts .alert p {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 /* Usage Summary */
 .usage-summary {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
 }
 
 .usage-summary ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 .usage-summary li {
-    font-size: 16px;
-    margin-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
-.usage-summary button,#btn button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 7px 18px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.usage-summary button,
+#btn button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 7px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .usage-summary button:hover {
-    background-color: #2980b9;
+  background-color: #2980b9;
 }
 
 /* Reminders Section */
 .reminders {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .reminders p {
-    font-size: 16px;
-    margin-bottom: 20px;
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
 .reminders button {
-    background-color: #2ecc71;
-    color: white;
-    border: none;
-    padding: 7px 18px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  padding: 7px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .reminders button:hover {
-    background-color: #27ae60;
+  background-color: #27ae60;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .dashboard {
-        padding: 10px;
-    }
+  .dashboard {
+    padding: 10px;
+  }
 
-    .inventory-summary table, .usage-summary, .alerts, .reminders {
-        padding: 15px;
-    }
+  .inventory-summary table,
+  .usage-summary,
+  .alerts,
+  .reminders {
+    padding: 15px;
+  }
 
-    .inventory-summary th, .inventory-summary td, .usage-summary ul li {
-        font-size: 14px;
-    }
+  .inventory-summary th,
+  .inventory-summary td,
+  .usage-summary ul li {
+    font-size: 14px;
+  }
 }
