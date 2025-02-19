@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+   <%- include("/")%>
+
+    <div class="dashboard">
+        <!-- Summary of Products -->
+        <section class="inventory-summary">
+            <h2>Inventory Overview</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Expiration Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="low-stock">
+                        <td>Vitamin C</td>
+                        <td>0</td>
+                        <td>2025-03-15</td>
+                        <td><button>Low Quantity</button></td>
+                        <td><button>Reorder</button></td>
+                    </tr>
+                    <tr class="expiring-soon">
+                        <td>Calcium Tablets</td>
+                        <td>20</td>
+                        <td>2025-02-25</td>
+                        <td><button>Expired</button></td>
+                        <td><button>Reorder</button></td>
+                    </tr>
+                  
+                </tbody>
+            </table>
+            <a href="/html/productList.html"><button>View all medicines</button></a>
+                
+            
+        </section>
+
+        <!-- Upcoming Expiration & Low Stock Alerts -->
+        <section class="alerts">
+            <h2>Upcoming Expiration & Low Stock Alerts</h2>
+            <div class="alert low-stock">
+                <p><strong>Vitamin C</strong> is low in stock (< 5). Consider reordering.</p>
+            </div>
+            <div class="alert expiring-soon">
+                <p><strong>Calcium Tablets</strong> expire on 2025-02-25. Reorder soon!</p>
+            </div>
+
+            <div id="btn"><button>View All</button></div>
+        </section>
+
+        <!-- Recent Usage -->
+        <section class="usage-summary">
+            <h2>Recent Usage</h2>
+            <ul>
+                <li>Vitamin C: 2 tablets used on 2025-02-18</li>
+                <li>Iron Supplements: 1 pill used on 2025-02-17</li>
+            </ul>
+            <button>Add Usage</button>
+        </section>
+
+        <!-- Reminders Overview -->
+        <section class="reminders">
+            <h2>Reminders</h2>
+            <p>You have 2 active reminders for low stock and expiration.</p>
+            <button>View All Reminders</button>
+        </section>
+    </div>
+
+    <script src="/js/nav.js"></script>
+</body>
+
+</html>

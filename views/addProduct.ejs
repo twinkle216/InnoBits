@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Medicines</title>
+    <link rel="stylesheet" href="/css/addProduct.css">
+</head>
+
+<body>
+
+    <h1>Add Medicine Details</h1>
+    <section class="features">
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Medicine Name</label>
+                <input type="text" id="name" placeholder="Ex. Paracetamol" required>
+            </div>
+            <div class="form-group">
+                <label for="number">Number of Tablets</label>
+                <input type="number" name="numberOfTablets" id="numberOfTablets"
+                    placeholder="Enter number of tablets in the pack">
+                <div class="form-group">
+                    <label for="date">Expiry Date</label>
+                    <input type="date" id="date" placeholder="DD/MM/YYY" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Dose 1 time</label>
+                    <input type="time" id="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Dose 2 time</label>
+                    <input type="time" id="subject" placeholder="Op">
+                </div>
+                <div class="form-group">
+                    <label for="time">Dose 3 time</label>
+                    <input type="time" id="subject" placeholder="Subject">
+                </div>
+
+                <button type="submit" class="submit-btn">Add To Memory</button>
+        </form>
+    </section>
+</body>
+</html>
