@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ECOCY</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="left-section">
+            <img class="logo" src="../images/image.png" alt="Logo">
+            <p class="tagline"><b>Let's Make a positive impact on ecosystem together!</b></p>
+        </div>
+        <div class="right-section">
+            <div class="card">
+                <h2 class="title">Sign Up</h2>
+                <form action="/signUp" method="POST">
+                    <input class="input" type="text" name="username" placeholder="Full Name" required>
+                    <input class="input" type="text" name="age" placeholder="Enter your age" required>
+                    <input class="input" type="text" name="gender" placeholder="Enter your gender" required>
+
+                    <input class="input" type="email" name="email" placeholder="Email" required>
+                    <input class="input" type="password" name="password" placeholder="Password" required>
+
+                    <button class="button" type="submit">Create Account</button>
+                </form>
+
+                <div>
+                    <p>If already user ? then <a href="/login">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
