@@ -6,11 +6,11 @@ const medicineSchema = new mongoose.Schema({
     required: true,
   },
   numberOfTablets: {
-    type: Integer,
+    type: Number,
     required: true,
   },
   doseQuantity: {
-    type: Integer,
+    type: Number,
     required: true,
   },
   expiryDate: {
@@ -28,10 +28,6 @@ const medicineSchema = new mongoose.Schema({
   time3: {
     type: String,
     unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
   },
 });
 
