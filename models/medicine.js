@@ -9,6 +9,10 @@ const medicineSchema = new mongoose.Schema({
     type: Integer,
     required: true,
   },
+  doseQuantity: {
+    type: Integer,
+    required: true,
+  },
   expiryDate: {
     type: Date,
     required: true,
