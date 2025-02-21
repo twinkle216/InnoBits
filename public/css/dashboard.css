@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #ecf0f1;
+  background-color: #ecf0f1 !important;
   color: #03013f;
   line-height: 1.6;
 }
@@ -14,10 +14,10 @@ body {
 h1,
 h2,
 h3 {
+    padding-bottom: 0.5rem;
   color: #00063e;
   font-weight: 600;
   margin-bottom: 10px;
-  text-align: center;
 }
 
 nav {
@@ -65,32 +65,22 @@ nav {
 .inventory-summary .expiring-soon td {
   color: #e74c3c;
 }
-.inventory-summary button {
-  background-color: #3c9ae7;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
 
-.inventory-summary .low-stock button,
-.inventory-summary .expiring-soon button {
-  background-color: #e74c3c;
+section button {
+  background-color: #3498db !important;
   color: white;
-  border: none;
   height: 2rem;
-  width: 5rem;
-  padding: 6px 12px;
+  width: 6rem;
+  border: none;
+  padding: 0.5rem;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-.inventory-summary .low-stock button:hover,
-.inventory-summary .expiring-soon button:hover {
-  background-color: #c0392b;
+section button:hover{
+    background-color: #1168a2 !important;
+  transition: background-color 0.3s;
+
 }
 
 /* Alerts Section */
@@ -132,22 +122,7 @@ nav {
   font-size: 16px;
   margin-bottom: 10px;
 }
-
-.usage-summary button,
-#btn button {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  padding: 7px 18px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.usage-summary button:hover {
-  background-color: #2980b9;
-}
-
+ 
 /* Reminders Section */
 .reminders {
   background-color: white;
@@ -160,21 +135,7 @@ nav {
   font-size: 16px;
   margin-bottom: 20px;
 }
-
-.reminders button {
-  background-color: #2ecc71;
-  color: white;
-  border: none;
-  padding: 7px 18px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.reminders button:hover {
-  background-color: #27ae60;
-}
-
+ 
 /* Responsive Design */
 @media (max-width: 768px) {
   nav ul {
