@@ -11,8 +11,10 @@ exports.signUp = async (req, res) => {
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
-      return res.status(400).send("User already exists!");
-    }
+      res.render("signUp", {
+        scsMsg: null,
+        errMsg: "User already exists!",
+      });}
 
     const user = new User({ username, age, gender, email, password });
     await user.save();
@@ -28,9 +30,15 @@ exports.signUp = async (req, res) => {
       sameSite: "None", //for cross-site cookies
     });
 
-    res.redirect("/home");
+    res.render("home", {
+      scsMsg: "You have created account successfully!",
+      errMsg: null,
+    });
   } catch (error) {
-    res.send("Error" + error.message);
+    res.render("home", {
+      scsMsg:null,
+      errMsg: "Something went wrong try again!",
+    });
   }
 };
 

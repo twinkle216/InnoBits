@@ -1,18 +1,26 @@
 const express = require("express");
 const router = express.Router();
 
-
 //Rendering static pages
 router.get("/home", (req, res) => {
-  return res.render("home");
+  return res.render("home", {
+    scsMsg: null,
+    errMsg: null,
+  });
 });
 
 router.get("/addProduct", (req, res) => {
-  return res.render("addProduct");
+  return res.render("addProduct", {
+    scsMsg: null,
+    errMsg: null,
+  });
 });
 
 router.get("/productList", (req, res) => {
-  return res.render("productList");
+  return res.render("productList", {
+    scsMsg: null,
+    errMsg: null,
+  });
 });
 
 router.get("/contact", (req, res) => {
@@ -23,11 +31,17 @@ router.get("/contact", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  return res.render("signUp");
+  return res.render("signUp", {
+    scsMsg: null,
+    errMsg: null,
+  });
 });
 
 router.get("/login", (req, res) => {
-  return res.render("login");
+  return res.render("login", {
+    scsMsg: null,
+    errMsg: null,
+  });
 });
 
 router.get("/about", (req, res) => {

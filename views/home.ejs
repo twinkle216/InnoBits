@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,45 +8,51 @@
   <link rel="stylesheet" href="/css/home.css">
   <style>
     /* Reset */
-   
   </style>
 </head>
+
 <body>
 
-  
+
   <%- include("partials/navbar")%>
-  <%- include("partials/popUp", { scsMsg: scsMsg, errMsg: errMsg })%>
+    <%- include("partials/popUp", { scsMsg: scsMsg, errMsg: errMsg })%>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Never Miss a Dose Again!</h1>
-    <p>Your health is our priority. Get timely reminders for your medications and stay on top of your health journey.</p>
-    <button>Get Started</button>
-  </section>
+      <!-- Hero Section -->
+      <section class="hero">
+        <h1>Never Miss a Dose Again!</h1>
+        <p>Your health is our priority. Get timely reminders for your medications and stay on top of your health
+          journey.</p>
+        <a href="/"><button>Get Started</button></a>
+      </section>
 
-  <!-- Features Section -->
-  <section class="features" id="features">
-    <h2>Key Features</h2>
-    <div class="feature-list">
-      <div class="feature-item">
-        <h3>Timely Alerts</h3>
-        <p>Receive accurate reminders for all your medications.</p>
-      </div>
-      <div class="feature-item">
-        <h3>Personalized Schedules</h3>
-        <p>Customize your medication plan according to your needs.</p>
-      </div>
-      <div class="feature-item">
-        <h3>Health Tracking</h3>
-        <p>Monitor your medication history and health progress.</p>
-      </div>
-    </div>
-  </section>
+      <!-- Features Section -->
+      <section class="features" id="features">
+        <h2>Key Features</h2>
+        <div class="feature-list">
 
-  <!-- Footer -->
-  <footer class="footer">
-    &copy; 2025 Meditory. All Rights Reserved.
-  </footer>
+          <div class="feature-item">
+            <h3>Timely Alerts</h3>
+            <p>Receive accurate reminders for all your medications.</p>
+          </div>
+
+          <div class="feature-item">
+            <h3>Personalized Schedules</h3>
+            <p>Customize your medication plan according to your needs.</p>
+          </div>
+
+          <div class="feature-item">
+            <h3>Health Tracking</h3>
+            <p>Monitor your medication history and health progress.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        &copy; 2025 Meditory. All Rights Reserved.
+      </footer>
 
 </body>
+
 </html>
