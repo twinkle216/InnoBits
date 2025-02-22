@@ -21,11 +21,12 @@ exports.addMedicine = async (req, res) => {
     }
 
     const medicine = new Medicine(req.body);
+    console.log(req.body);
     await medicine.save();
 
     res.redirect("/home");
   } catch (error) {
-    res.send("Error" + error.message);
+    res.send("Error :" + error.message);
   }
 };
 

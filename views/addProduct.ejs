@@ -14,16 +14,16 @@
 
 <body>
 
-    <%- include("navbar")%>
+    <%- include("partials/navbar")%>
 
         <section class="features">
 
-            <form class="contact-form" action="/addProduct" method="POST">
+            <form class="contact-form" action="/register" method="POST">
                 <h1>Add Medicine Details</h1>
 
                 <div class="form-group">
                     <label for="name">Medicine Name</label>
-                    <input type="text" id="name" placeholder="Ex. Paracetamol" required>
+                    <input type="text" id="name" name="name" placeholder="Ex. Paracetamol" required>
                 </div>
 
                 <div class="form-group">
@@ -41,22 +41,22 @@
 
                 <div class="form-group">
                     <label for="date">Expiry Date</label>
-                    <input type="date" id="date" placeholder="DD/MM/YYY" required>
+                    <input type="date" id="expiryDate" name="expiryDate" placeholder="DD/MM/YYY" required>
                 </div>
 
                 <div class="form-group">
                     <label for="time">Dose 1 time</label>
-                    <input type="time" id="subject" placeholder="Subject" required>
+                    <input type="time" name="time1" id="subject" placeholder="Subject" required>
                 </div>
 
                 <div class="form-group">
                     <label for="time">Dose 2 time</label>
-                    <input type="time" id="subject" placeholder="Op">
+                    <input type="time" name="time2" id="subject" placeholder="Op">
                 </div>
 
                 <div class="form-group">
                     <label for="time">Dose 3 time</label>
-                    <input type="time" id="subject" placeholder="Subject">
+                    <input type="time" name="time3" id="subject" placeholder="Subject">
                 </div>
 
                 <button type="submit" class="submit-btn">Add To Memory</button>
@@ -64,8 +64,8 @@
 
             <footer class="footer">
                 &copy; 2025 Meditory. All Rights Reserved.
-              </footer>
-            
+            </footer>
+
         </section>
 </body>
 

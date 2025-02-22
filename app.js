@@ -3,7 +3,8 @@ const express = require("express");
 const path = require("path");
 const PORT = 8000;
 const mongoose = require("mongoose");
-const userRoutes = require("./routes/userRoute");
+const userRoutes = require("./routes/userRoutes");
+const staticRoutes = require("./routes/staticRoutes");
 const cookieParser = require("cookie-parser");
 const app = express();
 
@@ -16,9 +17,10 @@ app.use(express.urlencoded({ extended: true }));
 //to show frontend
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
+app.set("views", path.join(__dirname, "views"));
 
 //base entering route
-app.use("/", userRoutes);
+app.use("/", userRoutes, staticRoutes);
 
 //Connecting mongoDB
 mongoose
