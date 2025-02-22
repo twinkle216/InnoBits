@@ -73,3 +73,8 @@ exports.updateDashboard = (req, res) => {
     console.log(err);
   }
 };
+
+//after taking medicine update Quantity in database
+exports.updateMedAmount = (req, res) => {
+  
+}

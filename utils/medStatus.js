@@ -5,7 +5,7 @@ checkMedStatus = (medicines) => {
   
       return medicines.map((med) => {
         const times = [med.time1, med.time2, med.time3];
-        let status = "No Dose";
+        let status = "Upcoming";
   
         for (let timeStr of times) {
           const [hours, minutes] = timeStr.split(":").map(Number);
