@@ -27,26 +27,27 @@
                     <tbody>
                         <% if ( Medicines && Medicines.length> 0) { %>
 
-                            <% Medicines.forEach((Medicine)=> { %>
-    
+                            <% Medicines.forEach((Med)=> { %>
+
                                 <tr class="tableRow">
                                     <td>
-                                        <%= Medicine.name %>
+                                        <%= Med.name %>
                                     </td>
                                     <td>
-                                        <%= Medicine.numberOfTablets %>
+                                        <%= Med.numberOfTablets %>
                                     </td>
                                     <td>
-                                        <%= Medicine.expiryDate %>
+                                        <%= Med.expiryDate %>
                                     </td>
-                                    <td><button>Update</button></td>
+                                        
+                                        <td><button><%= Med.status %></button></td>
                                 </tr>
-                                <% }) %>
+                                <% }); %>
                                     <% } else { %>
                                         <tr>
-                                            <td colspan="4">No medicines found.</td>
+                                            <td colspan="4">No medicines found...</td>
                                         </tr>
-    
+
                                         <% } %>
                     </tbody>
                 </table>

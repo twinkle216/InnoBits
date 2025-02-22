@@ -34,11 +34,13 @@ exports.signUp = async (req, res) => {
     res.render("home", {
       scsMsg: "You have created account successfully!",
       errMsg: null,
+      user,
     });
   } catch (error) {
     res.render("home", {
       scsMsg: null,
       errMsg: "Something went wrong try again!",
+      user,
     });
   }
 };
@@ -54,6 +56,7 @@ exports.login = async (req, res) => {
       return res.render("signUp", {
         scsMsg: null,
         errMsg: "User not found! Create account",
+        user,
       });
     }
 
@@ -65,6 +68,7 @@ exports.login = async (req, res) => {
       return res.render("home", {
         scsMsg: null,
         errMsg: "Invalid password!",
+        user,
       });
     }
 
@@ -79,6 +83,7 @@ exports.login = async (req, res) => {
     res.render("home", {
       scsMsg: "Logged in successfully!",
       errMsg: null,
+      user,
     });
   } catch (error) {
     res.send("Error: " + error.message);
@@ -91,5 +96,6 @@ exports.logout = (req, res) => {
   res.render("login", {
     scsMsg: "Logged out successfully!",
     errMsg: null,
+    user,
   });
 };

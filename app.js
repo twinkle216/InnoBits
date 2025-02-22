@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("views", path.join(__dirname, "views"));
 
 //base entering route
-app.use("/", userRoutes, staticRoutes);
+app.use("/",staticRoutes, userRoutes);
 
 //Connecting mongoDB
 mongoose
