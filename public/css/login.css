@@ -10,6 +10,8 @@ body {
 }
 
 .main-container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   display: flex;
   width: 80%;
   max-width: 1200px;

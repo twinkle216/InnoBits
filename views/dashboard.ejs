@@ -25,19 +25,29 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="low-stock">
-                            <td>Vitamin C</td>
-                            <td>0</td>
-                            <td>2025-03-15</td>
-                            <td><button>Reorder</button></td>
-                        </tr>
-                        <tr class="expiring-soon">
-                            <td>Calcium Tablets</td>
-                            <td>20</td>
-                            <td>2025-02-25</td>
-                            <td><button>Reorder</button></td>
-                        </tr>
+                        <% if ( Medicines && Medicines.length> 0) { %>
 
+                            <% Medicines.forEach((Medicine)=> { %>
+    
+                                <tr class="tableRow">
+                                    <td>
+                                        <%= Medicine.name %>
+                                    </td>
+                                    <td>
+                                        <%= Medicine.numberOfTablets %>
+                                    </td>
+                                    <td>
+                                        <%= Medicine.expiryDate %>
+                                    </td>
+                                    <td><button>Update</button></td>
+                                </tr>
+                                <% }) %>
+                                    <% } else { %>
+                                        <tr>
+                                            <td colspan="4">No medicines found.</td>
+                                        </tr>
+    
+                                        <% } %>
                     </tbody>
                 </table>
                 <a href="/productList"><button>View all</button></a>

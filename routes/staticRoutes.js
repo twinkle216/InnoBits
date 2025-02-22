@@ -17,7 +17,12 @@ router.get("/addProduct", (req, res) => {
   });
 });
 
-router.get("/productList", medController.updateTable);
+router.get("/productList", medController.updateTable, (req, res) => {
+  const checkedMed = medController.checkMedStatus(Medicines);
+  res.render("productList", { Medicines: checkedMed });
+});
+
+router.get("/dashboard", medController.filterMedicines);
 
 router.get("/contact", (req, res) => {
   return res.render("contact", {

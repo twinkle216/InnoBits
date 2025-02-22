@@ -14,7 +14,8 @@ exports.signUp = async (req, res) => {
       res.render("signUp", {
         scsMsg: null,
         errMsg: "User already exists!",
-      });}
+      });
+    }
 
     const user = new User({ username, age, gender, email, password });
     await user.save();
@@ -36,7 +37,7 @@ exports.signUp = async (req, res) => {
     });
   } catch (error) {
     res.render("home", {
-      scsMsg:null,
+      scsMsg: null,
       errMsg: "Something went wrong try again!",
     });
   }
@@ -50,7 +51,10 @@ exports.login = async (req, res) => {
     //checking user exist or not
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).send("User not found!");
+      return res.render("signUp", {
+        scsMsg: null,
+        errMsg: "User not found! Create account",
+      });
     }
 
     //comparing password
@@ -58,7 +62,10 @@ exports.login = async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
-      return res.status(400).send("invalid password!");
+      return res.render("home", {
+        scsMsg: null,
+        errMsg: "Invalid password!",
+      });
     }
 
     //creating and storing token
@@ -69,7 +76,10 @@ exports.login = async (req, res) => {
       secure: true, // 🔴 Important for HTTPS (Use false for localhost)
       sameSite: "None", // 🔴 Required for cross-site cookies
     });
-    res.redirect("/home");
+    res.render("home", {
+      scsMsg: "Logged in successfully!",
+      errMsg: null,
+    });
   } catch (error) {
     res.send("Error: " + error.message);
   }
@@ -78,5 +88,8 @@ exports.login = async (req, res) => {
 //logout handling
 exports.logout = (req, res) => {
   res.clearCookie("token");
-  res.redirect("/");
+  res.render("login", {
+    scsMsg: "Logged out successfully!",
+    errMsg: null,
+  });
 };
