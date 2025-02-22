@@ -1,58 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/dashboard.css">
     <title>Document</title>
 </head>
+
 <body>
     <%- include("partials/navbar")%>
-    
-    <section class="inventory-summary">
-        <h2>All Medicines List</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Expiration Date</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="low-stock">
+
+        <section class="inventory-summary">
+            <h2>All Medicines List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity Remained</th>
+                        <th>Expiry Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% if ( Medicines && Medicines.length> 0) { %>
+
+                        <% Medicines.forEach((Medicine)=> { %>
+
+                            <tr class="tableRow">
+                                <td>
+                                    <%= Medicine.name %>
+                                </td>
+                                <td>
+                                    <%= Medicine.numberOfTablets %>
+                                </td>
+                                <td>
+                                    <%= Medicine.expiryDate %>
+                                </td>
+                                <td><button>Update</button></td>
+                            </tr>
+                            <% }) %>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="4">No medicines found.</td>
+                                    </tr>
+
+                                    <% } %>
+
+
+
+
+                                        <!-- <tr class="tableRow">
                     <td>Vitamin C</td>
                     <td>5</td>
                     <td>2025-03-15</td>
                     <td><button>Reorder</button></td>
                 </tr>
-                <tr class="expiring-soon">
+                <tr class="tableRow">
                     <td>Paracetamol</td>
                     <td>20</td>
                     <td>2025-02-25</td>
                     <td><button>Expired</button></td>
                 </tr>
-                <tr class="expiring-soon">
+                <tr class="tableRow">
                     <td>Calcium Tablets</td>
                     <td>20</td>
                     <td>2025-02-25</td>
                     <td><button>Reorder</button></td>
                 </tr>
-                <tr class="expiring-soon">
+                <tr class="tableRow">
                     <td>zinc Tablets</td>
                     <td>20</td>
                     <td>2025-02-25</td>
                     <td><button>Sufficient</button></td>
                 </tr>
-                <tr>
+                <tr class="tableRow">
                     <td>Iron Supplements</td>
                     <td>50</td>
                     <td>2025-06-01</td>
                     <td><button>Edit</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+                </tr> -->
+                </tbody>
+            </table>
+        </section>
 </body>
+
 </html>

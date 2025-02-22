@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const medController = require("../controllers/medController");
 
 //Rendering static pages
 router.get("/home", (req, res) => {
@@ -16,12 +17,7 @@ router.get("/addProduct", (req, res) => {
   });
 });
 
-router.get("/productList", (req, res) => {
-  return res.render("productList", {
-    scsMsg: null,
-    errMsg: null,
-  });
-});
+router.get("/productList", medController.updateTable);
 
 router.get("/contact", (req, res) => {
   return res.render("contact", {

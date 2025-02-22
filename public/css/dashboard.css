@@ -60,12 +60,7 @@ nav {
 .inventory-summary tr:last-child {
   border-bottom: none;
 }
-
-.inventory-summary .low-stock td,
-.inventory-summary .expiring-soon td {
-  color: #e74c3c;
-}
-
+ 
 section button {
   height: fit-content !important;
   background-color: #3498db !important;
@@ -167,3 +162,4 @@ section button:hover {
   background-color: #041f3b;
   color: white;
 }
+

@@ -12,74 +12,78 @@
 
     <%- include("partials/navbar")%>
 
-    <div class="dashboard">
-        <!-- Summary of Products -->
-        <section class="inventory-summary">
-            <h2>Inventory Overview</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Expiration Date</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="low-stock">
-                        <td>Vitamin C</td>
-                        <td>0</td>
-                        <td>2025-03-15</td>
-                        <td><button>Reorder</button></td>
-                    </tr>
-                    <tr class="expiring-soon">
-                        <td>Calcium Tablets</td>
-                        <td>20</td>
-                        <td>2025-02-25</td>
-                        <td><button>Reorder</button></td>
-                    </tr>
-                  
-                </tbody>
-            </table>
-            <a href="/productList"><button>View all</button></a>
-                
-            
-        </section>
+        <div class="dashboard">
+            <section class="inventory-summary">
+                <h2>Inventory Overview</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Expiration Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="low-stock">
+                            <td>Vitamin C</td>
+                            <td>0</td>
+                            <td>2025-03-15</td>
+                            <td><button>Reorder</button></td>
+                        </tr>
+                        <tr class="expiring-soon">
+                            <td>Calcium Tablets</td>
+                            <td>20</td>
+                            <td>2025-02-25</td>
+                            <td><button>Reorder</button></td>
+                        </tr>
 
-        <!-- Upcoming Expiration & Low Stock Alerts -->
-        <section class="alerts">
-            <h2>Upcoming Expiration & Low Stock Alerts</h2>
-            <div class="alert low-stock">
-                <p><strong>Vitamin C</strong> is low in stock (< 5). Consider reordering.</p>
-            </div>
-            <div class="alert expiring-soon">
-                <p><strong>Calcium Tablets</strong> expire on 2025-02-25. Reorder soon!</p>
-            </div>
+                    </tbody>
+                </table>
+                <a href="/productList"><button>View all</button></a>
 
-            <div id="btn"><button>View All</button></div>
-        </section>
+            </section>
 
-        <!-- Recent Usage -->
-        <section class="usage-summary">
-            <h2>Recent Usage</h2>
-            <ul>
-                <li>Vitamin C: 2 tablets used on 2025-02-18</li>
-                <li>Iron Supplements: 1 pill used on 2025-02-17</li>
-            </ul>
-            <button>Add Usage</button>
-        </section>
+            <section class="alerts">
+                <h2>Upcoming Expiration & Low Stock Alerts</h2>
+                <div class="alert low-stock">
+                    <p><strong>Vitamin C</strong> is low in stock (< 5). Consider reordering.</p>
+                </div>
+                <div class="alert expiring-soon">
+                    <p><strong>Calcium Tablets</strong> expire on 2025-02-25. Reorder soon!</p>
+                </div>
 
-        <!-- Reminders Overview -->
-        <section class="reminders">
-            <h2>Reminders</h2>
-            <p>You have 2 active reminders for low stock and expiration.</p>
-            <button>View All</button>
-        </section>
-    </div>
+                <div id="btn"><button>View All</button></div>
+            </section>
+            </section>
 
-    <footer class="footer">
-        &copy; 2025 Meditory. All Rights Reserved.
-      </footer>
+            <!-- Upcoming Expiration & Low Stock Alerts -->
+            <section class="alerts">
+                <h2>Dose Reminders</h2>
+                <div class="alert low-stock">
+                    <p><strong>Vitamin C</strong> is low in stock (< 5). Consider reordering.</p>
+                </div>
+                <div class="alert expiring-soon">
+                    <p><strong>Calcium Tablets</strong> expire on 2025-02-25. Reorder soon!</p>
+                </div>
+
+                <div id="btn"><button>View All</button></div>
+            </section>
+
+            <section class="usage-summary">
+                <h2>Recent Usage</h2>
+                <ul>
+                    <li>Vitamin C: 2 tablets used on 2025-02-18</li>
+                    <li>Iron Supplements: 1 pill used on 2025-02-17</li>
+                </ul>
+                <button>Add Usage</button>
+            </section>
+
+
+
+            <footer class="footer">
+                &copy; 2025 Meditory. All Rights Reserved.
+            </footer>
 
 </body>
 

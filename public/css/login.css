@@ -1,5 +1,5 @@
 body {
-  background: #2c3e50;
+  background: linear-gradient(to top, #000000, #3498db);
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -8,6 +8,7 @@ body {
   align-items: center;
   min-height: 100vh;
 }
+
 .main-container {
   display: flex;
   width: 80%;
@@ -16,26 +17,31 @@ body {
   border-radius: 16px;
   overflow: hidden;
 }
+
 .left-section {
   flex: 1;
-  background: #3498db;
+  background: linear-gradient(to bottom, #000000, #0a456c);
   padding: 2rem;
   text-align: center;
 }
+
 .logo {
-  max-width: 30rem;
+  max-width: 20rem;
   margin-bottom: 1rem;
 }
+
 .ecocy-title {
   font-size: 4em;
   color: #064e3b;
   margin: 0;
 }
+
 .tagline {
-  color: #0a231c;
-  font-size: 1.2em;
+  color: #ffffff;
+  font-size: 1.3em;
   margin-top: 0.5rem;
 }
+
 .right-section {
   flex: 1;
   background: #ecf0f1;
@@ -44,16 +50,19 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .card {
   width: 100%;
   max-width: 350px;
 }
+
 .title {
-  color: #064e3b;
+  color: #08084a;
   font-size: 2em;
   margin-bottom: 1em;
   text-align: center;
 }
+
 .input {
   width: 100%;
   padding: 10px;
@@ -62,6 +71,7 @@ body {
   border-radius: 8px;
   box-sizing: border-box;
 }
+
 .button {
   width: 100%;
   padding: 10px;
@@ -72,6 +82,7 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
 .button:hover {
   background-color: #1770ab;
 }
@@ -81,24 +92,71 @@ body {
     flex-direction: column;
     width: 90%;
   }
+
   .left-section,
   .right-section {
     width: 100%;
     padding: 1.5rem;
   }
+
   .ecocy-title {
     font-size: 3em;
   }
 }
 
 @media (max-width: 480px) {
+  .main-container {
+    width: 95%;
+  }
+
+  .left-section,
+  .right-section {
+    padding: 1rem;
+  }
+
   .ecocy-title {
     font-size: 2.5em;
   }
+
   .title {
     font-size: 1.8em;
   }
+
   .card {
     padding: 1rem;
   }
+
+  .input,
+  .button {
+    padding: 12px;
+    font-size: 1em;
+  }
+
+  .tagline {
+    font-size: 1.1em;
+  }
 }
+
+@media (max-width: 360px) {
+  .ecocy-title {
+    font-size: 2em;
+  }
+
+  .title {
+    font-size: 1.6em;
+  }
+
+  .tagline {
+    font-size: 1em;
+  }
+
+  .input,
+  .button {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+  .card {
+    padding: 0.8rem;
+  }
+} 
