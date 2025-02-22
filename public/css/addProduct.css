@@ -1,24 +1,28 @@
 .contact-form {
-  background-color:#bff2ff ;
+  background-color: #ecf0f1;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  margin: 2rem auto;
+  max-width: 60rem;
+  margin: auto;
   padding: 2rem;
 }
 
-
-h1{
-    text-align: center !important;
-    color: darkblue;
-    
+body {
+  background: linear-gradient(to bottom, #082a41, #3498db);
 }
 
+h1 {
+  text-align: center !important;
+  color: darkblue;
+}
+
+form {
+  scale: 0.78;
+}
 
 .form-group {
   margin-bottom: 1.5rem;
   text-align: left;
-  
 }
 
 .form-group label {
@@ -55,11 +59,11 @@ h1{
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-weight: bold;
   display: block;
-  margin: 0 auto ;
+  margin: 0 auto;
 }
 
 .submit-btn:hover {
-  background-color:  #5dbeff;
+  background-color: #5dbeff;
 }
 
 .footer {
