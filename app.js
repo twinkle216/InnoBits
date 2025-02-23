@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
-const PORT = 3000;
+const PORT = 8000;
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
 const staticRoutes = require("./routes/staticRoutes");
