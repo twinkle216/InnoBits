@@ -11,6 +11,8 @@
 <body>
     <%- include("partials/navbar")%>
 
+        <!-- <audio id="alarmSound" src="/audio/alarm.mp3" loop></audio> -->
+
         <section class="inventory-summary">
             <h2>All Medicines List</h2>
             <table>
@@ -24,33 +26,66 @@
                 </thead>
                 <tbody>
 
-                    <% if ( Medicines && Medicines.length> 0) { %>
-
-                        <% Medicines.forEach((Medicine)=> { %>
-
+                    <% if (Medicines && Medicines.length> 0) { %>
+                        <% Medicines.forEach((Med)=> { %>
                             <tr class="tableRow">
                                 <td>
-                                    <%= Medicine.name %>
+                                    <%= Med.name %>
                                 </td>
                                 <td>
-                                    <%= Medicine.numberOfTablets %>
+                                    <%= Med.numberOfTablets %>
                                 </td>
                                 <td>
-                                    <%= Medicine.expiryDate %>
+                                    <%= Med.expiryDate %>
                                 </td>
-                                <td><button><%= Medicine.status %></button></td>
+                                <td>
+                                    <% if (Med.status=="Take Dose" ) { %>
+                                        <button id="doseBtn-<%= Med._id %>" style="background-color:#f39c12;"
+                                            onclick="stopAlarmAndUpdate('<%= Med._id %>')">
+                                            <%= Med.status %>
+                                        </button>
+
+                                        <audio id="alarmSound-<%= Med._id %>" src="/audio/alarm.mp3"
+                                            preload="auto"></audio>
+
+
+                                        <% } %>
+
+                                            <% if (Med.status=="Missed!" ) { %>
+                                                <button style="background-color: #e74c3c !important;">
+                                                    <%= Med.status %>
+                                                </button>
+                                                <% } %>
+
+                                                    <% if (Med.status=="Upcoming" ) { %>
+                                                        <button style="background-color: #3498db !important;">
+                                                            <%= Med.status %>
+                                                        </button>
+                                                        <% } %>
+
+                                                            <script src="/js/alarm.js"></script>
+
+                                </td>
                             </tr>
                             <% }) %>
                                 <% } else { %>
                                     <tr>
                                         <td colspan="4">No medicines found.</td>
                                     </tr>
-
                                     <% } %>
+
+
+
+
 
                 </tbody>
             </table>
         </section>
+
+
+
+
+
 </body>
 
 </html>

@@ -63,7 +63,7 @@ nav {
  
 section button {
   height: fit-content !important;
-  background-color: #3498db !important;
+  background-color: #3498db;
   color: white;
   height: 2rem;
   width: 6rem;

@@ -21,7 +21,7 @@
                             <th>Product</th>
                             <th>Quantity</th>
                             <th>Expiration Date</th>
-                            <th>Action</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,9 +40,33 @@
                                         <%= Med.expiryDate %>
                                     </td>
 
-                                    <td><button>
-                                            <%= Med.status %>
-                                        </button></td>
+                                    <td>
+                                        <% if (Med.status=="Take Dose" ) { %>
+                                            <button id="doseBtn-<%= Med._id %>" style="background-color:#f39c12;"
+                                                onclick="stopAlarmAndUpdate('<%= Med._id %>')">
+                                                <%= Med.status %>
+                                            </button>
+
+                                            <audio id="alarmSound-<%= Med._id %>" src="/audio/alarm.mp3"
+                                                preload="auto"></audio>
+
+
+                                            <% } %>
+
+                                                <% if (Med.status=="Missed!" ) { %>
+                                                    <button style="background-color: #e74c3c !important;">
+                                                        <%= Med.status %>
+                                                    </button>
+                                                    <% } %>
+
+                                                        <% if (Med.status=="Upcoming" ) { %>
+                                                            <button style="background-color: #3498db !important;">
+                                                                <%= Med.status %>
+                                                            </button>
+                                                            <% } %>
+
+                                                                <script src="/js/alarm.js"></script>
+                                    </td>
                                 </tr>
                                 <% }); %>
                                     <% } else { %>
@@ -97,6 +121,8 @@
             <footer class="footer">
                 &copy; 2025 Meditory. All Rights Reserved.
             </footer>
+
+
 
 </body>
 

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const medController = require("../controllers/medController");
 const user = require("../models/user");
-const filterMedicines = require("../middlewares/filter")
+const filterMedicines = require("../middlewares/filter");
 
 //Rendering static pages
 router.get("/home", (req, res) => {
@@ -20,13 +20,19 @@ router.get("/addProduct", (req, res) => {
   });
 });
 
-router.get("/productList", medController.updateProductList);
+router.get(
+  "/productList",
+  medController.updateProductList,
+  medController.updateMedAmount
+);
 
 router.get(
   "/dashboard",
   filterMedicines,
-  medController.updateDashboard
+  medController.updateInventory,
+  medController.updateMedAmount,
 );
+ 
 
 router.get("/contact", (req, res) => {
   return res.render("contact", {

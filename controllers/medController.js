@@ -48,8 +48,6 @@ exports.updateProductList = async (req, res) => {
     const medicines = await Medicine.find().lean();
     const checkedMed = checkMedStatus(medicines);
 
-    console.log(checkedMed);
-
     const formattedDateMed = formatMed(checkedMed);
     res.render("productList", { Medicines: formattedDateMed });
   } catch (err) {
@@ -57,24 +55,54 @@ exports.updateProductList = async (req, res) => {
   }
 };
 
-exports.updateDashboard = (req, res) => {
+exports.updateInventory = (req, res) => {
   try {
     const topTwoMed = req.checkedMed
-      .filter((med) => med.status !== "No Dose")
+      .filter((med) =>
+        med.status !== "Upcoming" ? true : med.status == "Upcoming"
+      )
       .slice(0, 2);
 
-      console.log(topTwoMed);
-      
-      const formattedDateMed = formatMed(topTwoMed);
-      console.log(formattedDateMed)
-      res.render("dashboard", { Medicines: formattedDateMed });
-      
+    const formattedDateMed = formatMed(topTwoMed);
+    res.render("dashboard", { Medicines: formattedDateMed });
   } catch (err) {
     console.log(err);
   }
 };
 
 //after taking medicine update Quantity in database
-exports.updateMedAmount = (req, res) => {
-  
-}
+exports.updateMedAmount = async (req, res) => {
+  try {
+    const { status } = req.body;  // Should be "Upcoming"
+    const medId = req.params.id;
+
+    const medicine = await Medicine.findById(medId);
+    if (!medicine) {
+      return res.status(404).json({ success: false, message: "Medicine not found" });
+    }
+
+    const doseQuantity = Number(medicine.doseQuantity) || 0;
+    const currentTablets = Number(medicine.numberOfTablets) || 0;
+
+    if (currentTablets < doseQuantity) {
+      return res.json({ success: false, message: "Medicine is out of stock!" });
+    }
+
+    // Updating both status and numberOfTablets
+    const updatedMedicine = await Medicine.findByIdAndUpdate(
+      medId,
+      {
+        $set: { status: status },
+        $inc: { numberOfTablets: -doseQuantity }
+      },
+      { new: true } // Ensures the updated document is returned
+    );
+
+    res.json({ success: true, updatedMedicine });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false });
+  }
+};
+
+
