@@ -18,11 +18,14 @@ const checkMedStatus = (medicines) => {
 
               const diffHours = (now - doseTime) / (1000 * 60 * 60);
 
+
               if (diffHours >= 0 && diffHours <= 2) {
                   status = "Take Dose";
                   break;
-              } else if (diffHours > 2) {
+              } else if (diffHours > 2 && diffHours < 3) {
                   status = "Missed!";
+              }else{
+                status = "Upcoming"
               }
           }
 

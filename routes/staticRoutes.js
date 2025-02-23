@@ -20,19 +20,9 @@ router.get("/addProduct", (req, res) => {
   });
 });
 
-router.get(
-  "/productList",
-  medController.updateProductList,
-  medController.updateMedAmount
-);
+router.get("/productList", medController.updateProductList);
 
-router.get(
-  "/dashboard",
-  filterMedicines,
-  medController.updateInventory,
-  medController.updateMedAmount,
-);
- 
+router.get("/dashboard", filterMedicines, medController.updateDashboard);
 
 router.get("/contact", (req, res) => {
   return res.render("contact", {

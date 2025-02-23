@@ -18,6 +18,9 @@ router.post("/contact", contactController.formSubmission);
 
 router.post("/register", medController.addMedicine);
 
-router.post("/taken/:id", medController.updateMedAmount)
+router.post("/taken/:id", medController.updateMedAmount);
+
+router.post('/medicine/:medicineId/update-usage', medController.updateRecentUsage);
+
 
 module.exports = router;

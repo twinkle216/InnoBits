@@ -43,7 +43,7 @@
                                     <td>
                                         <% if (Med.status=="Take Dose" ) { %>
                                             <button id="doseBtn-<%= Med._id %>" style="background-color:#f39c12;"
-                                                onclick="stopAlarmAndUpdate('<%= Med._id %>')">
+                                                onclick="stopAlarmAndUpdate('<%= Med._id %>'); updateUsage('<%= med._id %>');">
                                                 <%= Med.status %>
                                             </button>
 
@@ -78,11 +78,32 @@
                     </tbody>
                 </table>
                 <a href="/productList"><button>View all</button></a>
-
             </section>
 
+
+
+
             <section class="alerts">
-                <h2>Upcoming Expiration & Low Stock Alerts</h2>
+
+                <% if (Alerts && Alerts.length> 0) { %>
+                    <% Alerts.forEach(alert=> { %>
+                        <div class="alert <%= alert.type === 'low-stock' ? 'low-stock' : 'expiring-soon' %>">
+                            <% if (alert.type==='low-stock' ) { %>
+                                <p><strong>
+                                        <%= alert.medicineName %>
+                                    </strong> is low in stock (<%= alert.stock %>). Consider reordering.</p>
+                                <% } else if (alert.type==='expiring-soon' ) { %>
+                                    <p><strong>
+                                            <%= alert.medicineName %>
+                                        </strong> expires on <%= alert.expiryDate %>. Reorder soon!</p>
+                                    <% } %>
+                        </div>
+                        <% }); %>
+                            <% } else { %>
+                                <p>No current alerts.</p>
+                                <% } %>
+
+                                    <!-- <h2>Upcoming Expiration & Low Stock Alerts</h2>
                 <div class="alert low-stock">
                     <p><strong>Vitamin C</strong> is low in stock (< 5). Consider reordering.</p>
                 </div>
@@ -90,31 +111,82 @@
                     <p><strong>Calcium Tablets</strong> expire on 2025-02-25. Reorder soon!</p>
                 </div>
 
-                <div id="btn"><button>View All</button></div>
-            </section>
+                <div id="btn"><button>View All</button></div> -->
             </section>
 
             <!-- Upcoming Expiration & Low Stock Alerts -->
-            <section class="alerts">
+            <!-- <section class="alerts">
                 <h2>Dose Reminders</h2>
                 <div class="alert low-stock">
-                    <p><strong>Vitamin C</strong> is low in stock (< 5). Consider reordering.</p>
+                    <p>Your had missed vitamin C at ------ nearest past dose time </p>
                 </div>
                 <div class="alert expiring-soon">
-                    <p><strong>Calcium Tablets</strong> expire on 2025-02-25. Reorder soon!</p>
+                    <p>Be ready vitamin C dose time coming soon at ---- nearest future dose time</p>
                 </div>
 
                 <div id="btn"><button>View All</button></div>
+            </section> -->
+
+
+            <section class="alerts">
+                <h2>Dose Reminders</h2>
+
+                <% if (Reminders && Reminders.length> 0) { %>
+                    <% Reminders.forEach(reminder=> { %>
+                        <div class="alert <%= reminder.type === 'missed' ? 'low-stock' : 'expiring-soon' %>">
+                            <% if (reminder.type==='missed' ) { %>
+                                <p>You had missed <strong>
+                                        <%= reminder.medicineName %>
+                                    </strong> at <%= reminder.time %> (nearest past dose time).</p>
+                                <% } else if (reminder.type==='upcoming' ) { %>
+                                    <p>Be ready! <strong>
+                                            <%= reminder.medicineName %>
+                                        </strong> dose time is coming soon at <%= reminder.time %>.</p>
+                                    <% } %>
+                        </div>
+                        <% }); %>
+                            <% } else { %>
+                                <p>No current reminders.</p>
+                                <% } %>
+
+                                    <div id="btn"><button>View All</button></div>
             </section>
 
-            <section class="usage-summary">
+            <!-- <section class="usage-summary">
                 <h2>Recent Usage</h2>
                 <ul>
                     <li>Vitamin C: 2 tablets used on 2025-02-18</li>
                     <li>Iron Supplements: 1 pill used on 2025-02-17</li>
                 </ul>
                 <button>Add Usage</button>
+            </section> -->
+
+            <section class="usage-summary">
+                <h2>Recent Usage</h2>
+
+                <% Medicines.forEach(med=> { %>
+                    <div class="medicine-card">
+                        <h3>
+                            <%= med.name %>
+                        </h3>
+                        <p>
+                            <%= med.doseQuantity %>dose of <%= med.name %>
+                        </p>
+                        <p>had taken at
+                            <% if (med.lastUsedDate) { %>
+                                <%= new Date(med.lastUsedDate).toLocaleDateString('en-GB') %>
+                                    <% } else { %>
+                                        Not Used Yet......
+                                        <% } %>
+                        </p>
+                        <button onclick="updateUsage('<%= med._id %>')">Take Dose</button>
+                    </div>
+                    <% }) %>
+
+
+
             </section>
+
 
 
 
@@ -122,7 +194,7 @@
                 &copy; 2025 Meditory. All Rights Reserved.
             </footer>
 
-
+            <script src="js/usage.js"></script>
 
 </body>
 
